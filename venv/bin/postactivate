@@ -1,0 +1,4 @@
+#!/bin/bash
+export DATABASE_NAME="menshen"
+export DATABASE_USER="menshen_user"
+export DATABASE_PASSWORD='Mc9Rq!5Z6*VbQzsnT$uA2Rj$H4!SXj8N'
