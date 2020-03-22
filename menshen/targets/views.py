@@ -1,11 +1,26 @@
 from django.shortcuts import render
 from django.shortcuts import HttpResponse
-from django.template import loader
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Target
 
-def index(request):
-    return render(request, 'targets/index.html', {})
+class TargetList(ListView):
+    model = Target
 
-def detail(request, target_id):
-    return HttpResponse("You're looking at target %s" % target_id)
+class TargetView(DetailView):
+    model = Target
 
+class TargetCreate(CreateView):
+    model = Target
+    fields = ['name']
+    success_url = reverse_lazy('target_list')
+
+class TargetUpdate(UpdateView):
+    model = Target
+    fields = ['name']
+    success_url = reverse_lazy('target_list')
+
+class TargetDelete(DeleteView):
+    model = Target
+    success_url = reverse_lazy('target_list')

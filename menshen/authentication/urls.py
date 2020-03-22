@@ -10,5 +10,4 @@ urlpatterns = [
     url("password_reset", auth_views.PasswordResetView.as_view(), name='password_reset'),
     url('login', auth_views.LoginView.as_view(redirect_authenticated_user=True, template_name='registration/login.html'), name='login'),
     url('logout', auth_views.LogoutView.as_view(next_page='/'), name='login'),
-
 ]

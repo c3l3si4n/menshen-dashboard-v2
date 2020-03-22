@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="">Target List </h1>
+    </p>
+    {% if target_list %}
+        <ul class="list-group">
+            {% for target in target_list %}
+                <li class="list-group-item">
+                    <a class="text-primary" href="{{ target.get_absolute_url }}">{{ target.name }}</a>
+                </li>
+            {% endfor %}
+
+        </ul>
+    {% else %}
+        <p>There are no targets registered.</p>
+    {% endif %}
+    <p></p>
+    <form action="{% url 'target_new' %}">
+        <button type="submit" class="btn btn-primary">New Target</button>
+    </form>
+{% endblock %}
